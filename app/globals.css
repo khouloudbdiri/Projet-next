@@ -47,11 +47,11 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 50%;
+  height: 80%;
 }
 
 .first-look h2 {
-  color: #f58888;
+  color: #A16EB5;
   font-size: 50px;
   text-transform: uppercase;
   letter-spacing: 5px;

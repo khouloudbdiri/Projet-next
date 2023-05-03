@@ -29,8 +29,8 @@ function Navbar() {
                     <Toolbar>
 
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}
-                            color="default">
-                            Parfums
+                            text-shadow="0 0 3px #D6B2E5" >
+                            Butterflies
                         </Typography>
                         <Button color="inherit" onClick={() => router.push('/')}><HomeIcon
                             color="secondary" /> Home </Button>

@@ -17,10 +17,7 @@ function SectionFirstLook({ image, title }) {
                     />
                 </div>
             </section>
-            <div>
-                <img src="images/background1.jpg"></img>
-                <img src="images/background1.jpg"></img>
-            </div>
+       
 
         </>
     );

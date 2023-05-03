@@ -4,12 +4,12 @@ export default function Home() {
     {
       index: 0,
       background: "/images/background3.jpg",
-      title: "NOS MEILLEURES VENTES",
+      title: "Exclusive Collection",
     },
     {
       index: 1,
       background: "/images/background2.jpg",
-      title: "NOS MEILLEURES VENTES",
+      title: "New Sale",
     }
   ]
 
