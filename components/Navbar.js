@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AllOutIcon from '@mui/icons-material/AllOut';
 import HomeIcon from '@mui/icons-material/Home';
+import ArticleIcon from '@mui/icons-material/Article';
+
 function Navbar() {
     const router = useRouter();
 
@@ -36,6 +38,9 @@ function Navbar() {
                             color="secondary" /> Home </Button>
                         <Button color="inherit" onClick={() =>
                             router.push('/about')}><AllOutIcon color="primary" /> About </Button>
+                        <Button color="inherit" onClick={() =>
+                            router.push('/products')}><ArticleIcon style={{ color: '#B45472' }} /> Products
+                        </Button>
 
                     </Toolbar>
                 </AppBar>

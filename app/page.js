@@ -8,8 +8,9 @@ export default function Home() {
     },
     {
       index: 1,
-      background: "/images/background2.jpg",
+      background: "/images/sale.jpg",
       title: "New Sale",
+      
     }
   ]
 

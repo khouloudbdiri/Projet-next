@@ -31,7 +31,7 @@
 }
 
 .text-content h2 {
-  color: #582929;
+  color: #F1A3BC ;
   font-size: 62px;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -47,7 +47,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 80%;
+  height: 70%;
 }
 
 .first-look h2 {
