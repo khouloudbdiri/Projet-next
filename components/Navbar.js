@@ -31,7 +31,7 @@ function Navbar() {
                     <Toolbar>
 
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}
-                            text-shadow="0 0 3px #D6B2E5" >
+                            text-shadow="20px 20px 5px #D6B2E5" font-family="Trebuchet MS">
                             Butterflies
                         </Typography>
                         <Button color="inherit" onClick={() => router.push('/')}><HomeIcon
@@ -39,7 +39,7 @@ function Navbar() {
                         <Button color="inherit" onClick={() =>
                             router.push('/about')}><AllOutIcon color="primary" /> About </Button>
                         <Button color="inherit" onClick={() =>
-                            router.push('/products')}><ArticleIcon style={{ color: '#B45472' }} /> Products
+                            router.push('/products')}><ArticleIcon style={{ color: '#B45472'  }} /> Products
                         </Button>
 
                     </Toolbar>
