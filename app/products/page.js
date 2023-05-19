@@ -9,7 +9,7 @@ async function getProducts() {
     return products;
 }
 async function getCategries() {
-    const res = await fetch('http://localhost:3001/api/categorie')
+    const res = await fetch('http://localhost:3001/api/categories')
     const categories = await res.json();
     return categories;
 }

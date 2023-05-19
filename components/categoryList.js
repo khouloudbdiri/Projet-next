@@ -1,12 +1,13 @@
 "use client";
 import React from 'react';
-///import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 
-const CategoryList = async ({ categories }) => {
+const CategoryList =    ({ categories }) => {
 
     return (
+        <>
         <center>
             <Carousel width="30%">
                 {categories?.map((category) => (
@@ -17,6 +18,7 @@ const CategoryList = async ({ categories }) => {
                 ))}
             </Carousel>
         </center>
+        </>
     );
 }
 export default CategoryList; 

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 export default function About() {
     return (
         <div className="container">
@@ -8,11 +9,13 @@ export default function About() {
                     <h2>Our company</h2>
                 </div>
             </div>
+            <div></div>
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <div>
                         <h2>Our Background</h2>
                     </div>
+                    <p>Nothing stands between a girl and her perfume</p>
                 </div>
                 <div className="col-md-6">
                     <div>
