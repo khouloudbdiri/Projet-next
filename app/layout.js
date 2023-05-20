@@ -2,7 +2,7 @@
 import './globals.css'
 import Head from './head'
 import Navbar from "../components/Navbar"
-
+import {SessionProvider} from "next-auth/react"; 
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,8 +17,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head />
       <body>
+      <SessionProvider>
         <Navbar />
         {children}
+        </SessionProvider>
       </body>
     </html>
   )

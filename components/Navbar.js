@@ -9,8 +9,12 @@ import Button from '@mui/material/Button';
 import AllOutIcon from '@mui/icons-material/AllOut';
 import HomeIcon from '@mui/icons-material/Home';
 import ArticleIcon from '@mui/icons-material/Article';
-
+import FaceIcon from '@mui/icons-material/Face';
+import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import { useSession, signOut } from 'next-auth/react';
 function Navbar() {
+    const { data } = useSession();
+
     const router = useRouter();
 
     const [onTop, setOnTop] = useState(true);
@@ -39,8 +43,19 @@ function Navbar() {
                         <Button color="inherit" onClick={() =>
                             router.push('/about')}><AllOutIcon color="primary" /> About </Button>
                         <Button color="inherit" onClick={() =>
-                            router.push('/products')}><ArticleIcon style={{ color: '#B45472'  }} /> Products
+                            router.push('/products')}><ArticleIcon style={{ color: '#B45472' }} /> Products
                         </Button>
+
+                        {data?.user ? (
+                        <>
+                            <span style={{ marginRight: "15px", color: "orange" }}>USER :{data?.user?.email}</span>
+                            {" "}
+                            <Button color="inherit" onClick={() =>
+                                signOut()}><ExitToAppRoundedIcon style={{ color: 'gray' }} /> Logout </Button>
+                        </>
+                        ) : <Button color="inherit" onClick={() =>
+                            router.push('/login')}><FaceIcon style={{ color: '#352429' }} /> Login </Button>
+                        }
 
                     </Toolbar>
                 </AppBar>

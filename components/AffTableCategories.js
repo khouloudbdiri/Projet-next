@@ -3,10 +3,39 @@ import React from 'react';
 import MUIDataTable from "mui-datatables";
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import NoteAltOutlinedIcon from '@mui/icons-material/NoteAltOutlined';
-const affTableCategories = ({ categories }) => {
-    const handleDelete = (id) => {
+
+import AjoutCategorie from './ajoutCategories';
+
+import UpdateCategory from './updateCategory'; 
+
+const affTableCategories = (props) => {
+    const [categories, setCategories] = React.useState(props.categories)
+
+    //Pour actualiser la liste
+    const getCategories = async () => {
+        const res = await fetch('http://localhost:3001/api/categories')
+        const categories = await res.json();
+        setCategories(categories)
+    }
+    React.useEffect(() => {
+        getCategories();
+
+    }, [categories]);
+
+    const handleDelete = async (id) => {
         if (window.confirm("supprimer la catégorie O/N")) {
             console.log(id)
+            const res = await (await
+                fetch('http://localhost:3001/api/categories' + id, {
+                    method: "DELETE"
+                })).json();
+            if (res) {
+                const newCategories = categories.filter((item) => item.id !== id);
+                setCategories(newCategories);
+
+            } else {
+                console.log(res);
+            }
         }
     }
     const columns = [
@@ -31,14 +60,16 @@ const affTableCategories = ({ categories }) => {
             name: "id",
             label: "Actions",
             options: {
-                customBodyRender: (value) => (
+                customBodyRender: (value,tableMeta) => (
                     <div>
-                        <span
+                   
+                    <UpdateCategory categories={categories[tableMeta.rowIndex]}/>
+                        {/* <span
                             onClick={() => { }}
                             style={{ cursor: 'pointer' }}
                         >
                             <NoteAltOutlinedIcon color='success' />
-                        </span>
+                        </span> */}
                         <span
                             onClick={(e) => handleDelete(value)}
                             style={{ cursor: 'pointer' }}
@@ -52,6 +83,7 @@ const affTableCategories = ({ categories }) => {
     ];
     return (
         <>
+            <AjoutCategorie />
             {categories && categories?.length > 0 ?
 
                 <MUIDataTable
