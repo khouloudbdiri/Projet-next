@@ -41,7 +41,7 @@ const AdminSidebar = () => {
                     </MenuItem>
                     <Divider />
                     <MenuItem>
-                        <div onClick={() => router.push('/products')}
+                        <div onClick={() => router.push('/tableCategories')}
                             className="stylediv">
                             <div>
                                 <ArticleOutlinedIcon sx={{ color: '#316610' }} />
@@ -52,7 +52,7 @@ const AdminSidebar = () => {
                     </MenuItem>
                     <Divider />
                     <MenuItem>
-                        <div onClick={() => router.push('/products')}
+                        <div onClick={() => router.push('/tableProducts')}
                             className="stylediv">
                             <div>
                                 <ReceiptLongOutlinedIcon sx={{ color: '#991793' }} />

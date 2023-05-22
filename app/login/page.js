@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-const Login = () => {
+import { useRouter } from 'next/navigation';
+export default function Login () {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const submitHandler = async (e) => {
@@ -14,6 +16,7 @@ const Login = () => {
                 password
             })
             console.log(data);
+            router.push('/dashboard')
         } catch (error) {
             console.log(error);
         }
@@ -68,4 +71,4 @@ const Login = () => {
         </div>
     );
 };
-export default Login; 
+

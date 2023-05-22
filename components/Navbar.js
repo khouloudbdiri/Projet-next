@@ -45,15 +45,14 @@ function Navbar() {
                         <Button color="inherit" onClick={() =>
                             router.push('/products')}><ArticleIcon style={{ color: '#B45472' }} /> Products
                         </Button>
-
-                        {data?.user ? (
-                        <>
-                            <span style={{ marginRight: "15px", color: "orange" }}>USER :{data?.user?.email}</span>
+                        {data?.user ? (<>
+                            <span style={{ marginRight: "15px", color: "orange" }}>USER :
+                                {data?.user?.email}</span>
                             {" "}
                             <Button color="inherit" onClick={() =>
                                 signOut()}><ExitToAppRoundedIcon style={{ color: 'gray' }} /> Logout </Button>
                         </>
-                        ) : <Button color="inherit" onClick={() =>
+                        ) :  <Button color="inherit" onClick={() =>
                             router.push('/login')}><FaceIcon style={{ color: '#352429' }} /> Login </Button>
                         }
 

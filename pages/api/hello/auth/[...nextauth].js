@@ -10,27 +10,32 @@ export default NextAuth({
             async authorize(credentials, req) {
 
                 const { email, password } = credentials;
-                console.log(email, password)
-
-                const res = await
-                    axios.post('http://localhost:3001/api/user', {
-                        email,
-                        password
-                    })
+                try {
+                    const res = await axios.post('http://localhost:3001/api/users/login?timestamp=${new Date().getTime()}', {
+                      email,
+                      password,
+                    });
                 if (res) {
-                    const user = res.data.result;
-                    const token = res.data.token;
-                    console.log(user)
-                    console.log(token)
-                    return user;
-                }
-                
-            }
-        })
-
-    ],
-    pages: {
-        signIn: '/login'
-    },
-    secret: process.env.NEXTAUTH_SECRET
-}); 
+                    const user = res.data.user;
+                    const token = res.data.accessToken;
+                    console.log(user);
+                    console.log(token);
+                    return {
+                        redirect: '/dashboard',
+                      };
+                    } else {
+                      console.log('ERROR');
+                      return null;
+                    }
+                  } catch (error) {
+                    console.log(error);
+                    return null;
+                  }
+                },
+            }),
+          ],
+        pages: {
+            signIn: '/login'
+        },
+        secret: process.env.NEXTAUTH_SECRET 
+        });
