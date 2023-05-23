@@ -11,8 +11,15 @@ import HomeIcon from '@mui/icons-material/Home';
 import ArticleIcon from '@mui/icons-material/Article';
 import FaceIcon from '@mui/icons-material/Face';
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
+import { useShoppingCart } from "use-shopping-cart";
 import { useSession, signOut } from 'next-auth/react';
+import Image from "next/image";
+import ShoppingCart from "./ShoppingCart";
+
 function Navbar() {
+    const { handleCartClick, cartCount } = useShoppingCart();
     const { data } = useSession();
 
     const router = useRouter();
@@ -28,6 +35,8 @@ function Navbar() {
             setOnTop(false);
         }
     }
+
+
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
@@ -45,6 +54,9 @@ function Navbar() {
                         <Button color="inherit" onClick={() =>
                             router.push('/products')}><ArticleIcon style={{ color: '#B45472' }} /> Products
                         </Button>
+                        <Button color="inherit" onClick={() =>
+                            router.push('/cartProducts')}><ShoppingBasketIcon style={{ color: 'pink' }} />
+                            Shopping Cart </Button>
                         {data?.user ? (<>
                             <span style={{ marginRight: "15px", color: "orange" }}>USER :
                                 {data?.user?.email}</span>
@@ -52,10 +64,22 @@ function Navbar() {
                             <Button color="inherit" onClick={() =>
                                 signOut()}><ExitToAppRoundedIcon style={{ color: 'gray' }} /> Logout </Button>
                         </>
-                        ) :  <Button color="inherit" onClick={() =>
-                            router.push('/login')}><FaceIcon style={{ color: '#352429' }} /> Login </Button>
+                        ) : <Button color="inherit" onClick={() =>
+                            router.push('/login')}><FaceIcon style={{ color: 'green' }} /> Login </Button>
                         }
+                        <button className="relative" onClick={() => handleCartClick()}>
+                            <Image
+                                src="/images/cart.png"
+                                width={30}
+                                height={30}
+                                alt="shopping cart icon"
+                            />
+                            <div className="rounded-full flex justify-center items-center bg-emerald-500 text-xs text-white absolute w-6 h-5 bottom-6 -right-1">
+                                {cartCount}
 
+                            </div>
+                        </button>
+                        <ShoppingCart />
                     </Toolbar>
                 </AppBar>
             </Box>

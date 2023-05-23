@@ -31,7 +31,7 @@ function AjoutProd() {
 
     const handlesave = async () => {
         const res = await (await
-            fetch('http://localhost:3001/api/produit', {
+            fetch(`http://localhost:3001/api/produit`, {
                 method: 'POST',
                 body: JSON.stringify(inputs),
                 headers: {

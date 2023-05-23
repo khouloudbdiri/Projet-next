@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   box-sizing: border-box;
   padding: 0;
@@ -49,7 +52,21 @@ body {
   letter-spacing: 5px;
   font-family: 'Dancing Script', cursive;
 }
-
+h2 {
+  color: #d62056 ;
+  font-size: 80px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: 'Dancing Script', cursive;
+}
+h4 {
+  color:#8339a0;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: Papyrus;
+}
 .first-look {
   height: 120vh;
   margin-top: 20vh;

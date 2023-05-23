@@ -45,17 +45,19 @@ export default function AjoutCat() {
     const handlesave = async (url) => {
         setImage(url);
         const cat = {
-            name: name,
-            image: url,
+            nomcategorie: name,
+            imagecategorie: url,
         };
+        console.log(name)
         const res = await (await
-            fetch('http://localhost:3001/api/categories', {
+            fetch(`http://localhost:3001/api/categories`, {
                 method: 'POST',
                 body: JSON.stringify(cat),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })).json()
+            console.log('bbb')
         if (res) {
             console.log('successfully inserted!')
 

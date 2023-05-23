@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+
 export default function Login () {
     const router = useRouter();
     const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ export default function Login () {
                         className="border border-secondary rounded p-4"
                         onSubmit={submitHandler}
                     >
-                        <h1 className="mb-4">Login</h1>
+                        <h2 className="mb-4">Login</h2>
                         <div className="form-outline mb-4">
                             <label className="form-label" htmlFor="email_field">
                                 Email address
@@ -56,7 +57,7 @@ export default function Login () {
                         </div>
                         <button
                             type="submit"
-                            className="btn btn-block w-100 btn-primary btn-block mb-4"
+                            className="btn btn-block w-100 btn-danger btn-block mb-4"
                         >
                             Sign in
                         </button>

@@ -10,7 +10,7 @@ const affTableProducts = (props) => {
 
     const [products, setproducts] = React.useState(props.products)
     const getproducts = async () => {
-        const res= await fetch('http://localhost:3001/api/produit')
+        const res= await fetch(`http://localhost:3001/api/produit?timestamp=${new Date().getTime()}`)
          const products = await res.json();
          setproducts(products)
          }
@@ -23,7 +23,7 @@ const affTableProducts = (props) => {
         if (window.confirm("supprimer le produit O/N")) {
             console.log(id)
             const res = await (await
-                fetch('http://localhost:3001/api/produit' + id, {
+                fetch(`http://localhost:3001/api/produit` + id, {
                     method: "DELETE"
                 })).json();
             if (res) {
